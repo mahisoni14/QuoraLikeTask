@@ -1,0 +1,12 @@
+<h1>Users</h1>
+<table>
+	<tr>
+		<th>Users</th>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+	</tr>
+	<% end %>
+</table>
+<%= link_to "back", root_path %>

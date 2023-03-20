@@ -1,0 +1,28 @@
+<div>
+	<% if !@question.topic.present? %>
+		<strong>Topic : "not specified"</strong>
+		<%= button_to "Add topic", new_topic_path(@question), method: :get %>
+	<% else %>
+	<strong>Topic : <%= @question.topic.body %></strong>
+	<%= button_to "Follow topic", follow_topic_homes_path(topic_id: @question.topic.id,question_id: @question), method: :post %>
+	<% end %>
+</div>
+
+<div>
+	<h3>Question</h3>
+	<%= @question.body %><br>
+	Asked by: <%= @question.user.email %>
+</div>
+<div>
+	<h4>Answers</h4>
+	<% if @question.answers.present? %>
+		<ol>
+		<% @question.answers.each do |answer| %>
+			<li><%= answer.body %></li><br>
+			<strong>by <%= answer.user.email %> <%= button_to "Follow user", follow_user_homes_path(user_id: answer.user.id,question_id: @question), method: :post %></strong>
+		<% end %>
+		</ol>
+	<% end %>
+</div>
+	<%= link_to "Add answers", new_answer_path(@question) %><br>
+	<%= link_to "back", root_path %>

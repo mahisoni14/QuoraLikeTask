@@ -1,0 +1,14 @@
+<h3>Add answers</h3>
+
+<%= form_with model: @answer, url: answers_path, method: :post do |form| %>
+<div>
+	<%= form.label :Answer %>
+	<%= form.text_field :body %>
+</div>
+<div>
+	<%= form.hidden_field :question_id, :value => @question.id %>
+</div>
+<div>
+	<%= form.submit "add answer" %>
+</div>
+<% end %>

@@ -1,0 +1,19 @@
+<h3>Create question</h3>
+
+<%= form_with model: @question, url: questions_path, method: :post do |form| %>
+<div>
+	<%= form.label :'Topic(optional)' %><br>
+	<%= form.text_field :topic %>
+</div>
+<div>
+	<%= form.label :question %><br>
+	<%= form.text_area :body %>
+</div>
+<div>	
+	<%= form.label :'Answer(optional)' %><br>
+	<%= form.text_area :answer %>
+</div>
+<div>
+	<%= form.submit "create question" %>
+</div>
+<% end %>

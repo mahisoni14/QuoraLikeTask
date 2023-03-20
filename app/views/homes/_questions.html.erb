@@ -1,0 +1,13 @@
+<h2>List od Questions</h2>
+<table>
+	<tr>
+		<th>Questions</th>
+		<th>User</th>
+	</tr>
+	<% @questions.each do |question| %>
+	<tr>
+		<td><%= link_to question.body, question_path(question) %></td>
+		<td><%= question.user.email %></td>
+	</tr>
+	<% end %>
+</table>
